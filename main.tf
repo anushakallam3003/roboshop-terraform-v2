@@ -1,5 +1,5 @@
 resource "aws_instance" "instances" {
-  count = 10
+  count = 9
   ami = var.ami
   instance_type = var.instance_type
   vpc_security_group_ids = var.vpc_security_group_ids
@@ -9,7 +9,7 @@ resource "aws_instance" "instances" {
   }
 }
 resource "aws_route53_record" "a-records" {
-  count = 10
+  count = 9
   zone_id = var.zone_id
   name    = "${var.components[count.index]}-dev"
   type    = "A"
